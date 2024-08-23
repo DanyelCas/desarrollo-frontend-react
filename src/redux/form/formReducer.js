@@ -7,7 +7,7 @@ const initialState = {
         password: ''
     },
 
-    password_secret: 'abcd'
+    password_secret: 'mod7ReactUSIP'
 };
 
 const formReducer = (state = initialState, action) => {

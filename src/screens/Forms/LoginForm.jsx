@@ -9,6 +9,7 @@ const LoginForm = () => {
     const [values, handleChange] = useForm({ username: '', email: '', password: ''});
     const [showModalInfo, setShowModalInfo] = useState(false);
     const [showModalError, setShowModalError] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const form = useSelector(state => state.form);
     const dispatch = useDispatch();
 
@@ -22,7 +23,6 @@ const LoginForm = () => {
             console.log('son distintos!!!');
             setShowModalError(true);
         }
-            
     }
 
     // Función para alternar el estado del modal
@@ -36,6 +36,10 @@ const LoginForm = () => {
 
     const hideModalError = () => {
         setShowModalError(false);
+    }
+
+    const toggleVerPassword = () => {
+        setShowPassword(!showPassword);
     }
 
     return (
@@ -52,7 +56,7 @@ const LoginForm = () => {
                 />
                 <ModalInfo 
                     visible={showModalError}
-                    message="Error!!!"
+                    message="Password incorrecto"
                     onClose={hideModalError}
                 />
                 <form onSubmit={handleSubmit}>
@@ -75,6 +79,7 @@ const LoginForm = () => {
                             placeholder="email"
                             onChange={handleChange} 
                             value={values.email} 
+                            type="email"
                         />
                     </div>
                     <div>
@@ -84,11 +89,15 @@ const LoginForm = () => {
                             placeholder="password"
                             onChange={handleChange} 
                             value={values.password} 
+                            type={showPassword ? "text" : "password"}
                         />
+                        <button type="button" onClick={toggleVerPassword}>
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
                     </div>
                     <div className="button-container">
                         <button type="submit">Submit</button>
-                        <button onClick={mostrarModalInfo}> Mostrar modal </button>
+                        <a href="">Logout</a>
                     </div>
                     
                 </form>

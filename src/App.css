@@ -40,6 +40,9 @@
 nav {
   background-color: #333;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul {
@@ -48,11 +51,19 @@ ul {
   justify-content: flex-start;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 li {
   margin-right: 2rem;
 }
+
+li:last-child {
+  margin-left: auto;
+  margin-right: 0;
+  color: #ffffff;
+}
+
 
 a {
   color: white;
@@ -132,10 +143,10 @@ form div input {
 }
 
 .notification-success {
-  background-color: #efd6bd;
-  color: #cc8259;
+  background-color: #ffd3d7;
+  color: #ce4e4e;
   padding: 2rem;
-  border: 1px solid #cc8259;
+  border: 1px solid #ce4e4e;
   border-radius: 0.5rem;
   max-width: 500px;
   width: 90%;
