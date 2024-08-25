@@ -1,14 +1,15 @@
 import useForm from "../../hooks/useForm";
 import { useDispatch, useSelector } from 'react-redux'
-import { saveFormData } from "../../redux/form/formActions";
+import { saveFormData, resetFormData } from "../../redux/form/formActions";
 import { motion } from 'framer-motion';
 import ModalInfo from '../../components/ModalInfo';
 import { useState } from "react";
 
 const LoginForm = () => {
-    const [values, handleChange] = useForm({ username: '', email: '', password: ''});
+    const [values, handleChange, resetForm] = useForm({ username: '', email: '', password: ''});
     const [showModalInfo, setShowModalInfo] = useState(false);
     const [showModalError, setShowModalError] = useState(false);
+    const [showModalLogout, setShowModalLogout] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const form = useSelector(state => state.form);
     const dispatch = useDispatch();
@@ -23,24 +24,35 @@ const LoginForm = () => {
             console.log('son distintos!!!');
             setShowModalError(true);
         }
-    }
+    };
 
-    // Función para alternar el estado del modal
     const mostrarModalInfo = () => {
         setShowModalInfo(true);
-    }
+    };
 
     const hideModalInfo = () => {
         setShowModalInfo(false);
-    }
+    };
 
     const hideModalError = () => {
         setShowModalError(false);
-    }
+    };
 
     const toggleVerPassword = () => {
         setShowPassword(!showPassword);
-    }
+    };
+
+    const toogleModalLogout = () => {
+        setShowModalLogout(!showModalLogout);
+    };
+
+    const handleLogout = () => {
+        dispatch(resetFormData());
+        resetForm();
+        setShowModalLogout(false);
+    };
+
+    const messageLogout = "¿Estás seguro de que quieres cerrar sesión?";
 
     return (
         <motion.div
@@ -58,6 +70,12 @@ const LoginForm = () => {
                     visible={showModalError}
                     message="Password incorrecto"
                     onClose={hideModalError}
+                />
+                <ModalInfo 
+                    visible={showModalLogout}
+                    message={messageLogout}
+                    onClose={toogleModalLogout}
+                    onConfirm={handleLogout}
                 />
                 <form onSubmit={handleSubmit}>
                     <h5>username: {form.formData.username}</h5>
@@ -97,7 +115,14 @@ const LoginForm = () => {
                     </div>
                     <div className="button-container">
                         <button type="submit">Submit</button>
-                        <a href="">Logout</a>
+                        <button 
+                            className="logout-link"
+                            type="button"
+                            onClick={toogleModalLogout}
+                        >
+                                Logout
+                        </button>
+
                     </div>
                     
                 </form>

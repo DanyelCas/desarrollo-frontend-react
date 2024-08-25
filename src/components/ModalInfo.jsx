@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const ModalInfo = ({ visible, message, onClose }) => {
+const ModalInfo = ({ visible, message, onClose, onConfirm  }) => {
     if (!visible) {
         return null;
     }
@@ -13,7 +13,12 @@ const ModalInfo = ({ visible, message, onClose }) => {
                 transition={{duration: 0.5}}
             >
                 <div>
-                    <p>{message}</p>
+                    <p dangerouslySetInnerHTML={{ __html: message }}></p>
+                    {onConfirm && (
+                        <button className="confirm-btn" onClick={onConfirm}>
+                            Presionar para salir!!!
+                        </button>
+                    )}
                 </div>
                 <button
                     className="close-btn-success"

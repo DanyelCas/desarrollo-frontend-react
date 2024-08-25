@@ -164,3 +164,96 @@ form div input {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+/* Estilos para el botón de Submit */
+button[type="submit"] {
+  padding: 10px 20px;
+  color: white;
+  background-color: #3498db; /* Azul */
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9; /* Azul más oscuro al pasar el cursor */
+}
+
+button[type="submit"]:active {
+  background-color: #2471a3; /* Azul aún más oscuro al hacer clic */
+}
+
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5); /* Sombra al enfocar */
+}
+
+/* Estilos para el enlace de Logout */
+.logout-link {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #e74c3c; /* Rojo oscuro */
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.logout-link:hover {
+  background-color: #c0392b; /* Rojo más oscuro al pasar el cursor */
+}
+
+.logout-link:active {
+  background-color: #a93226; /* Aún más oscuro cuando se hace clic */
+}
+
+.logout-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.5); /* Sombra al enfocar */
+}
+
+/* Estilos para la LandingPage */
+
+.containermain {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.titulo_modulo7 {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.subtitulo_modulo {
+  margin-top: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}

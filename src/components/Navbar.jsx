@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">LandingPage</Link>
                 </li>
                 <li>
                     <Link to="/default">Default</Link>

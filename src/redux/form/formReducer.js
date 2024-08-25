@@ -1,4 +1,4 @@
-import { SET_FORM_DATA } from './formTypes';
+import { SET_FORM_DATA, RESET_FORM_DATA } from './formTypes';
 
 const initialState = {
     formData: {
@@ -20,6 +20,12 @@ const formReducer = (state = initialState, action) => {
                     ...state.formData,
                     ...action.payload
                 },
+            }
+        }
+        case RESET_FORM_DATA: {
+            return {
+                ...state,
+                formData: initialState.formData
             }
         }
         default:
