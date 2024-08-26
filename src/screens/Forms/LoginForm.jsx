@@ -78,9 +78,10 @@ const LoginForm = () => {
                     onConfirm={handleLogout}
                 />
                 <form onSubmit={handleSubmit}>
-                    <h5>username: {form.formData.username}</h5>
-                    <h5>email: {form.formData.email}</h5>
-                    <h5>password: {form.formData.password}</h5>
+                    <h2>Login Form</h2>
+                    <h5 className="showData">username: {form.formData.username}</h5>
+                    <h5 className="showData">email: {form.formData.email}</h5>
+                    <h5 className="showData">password: {form.formData.password}</h5>
                     <div>
                         <label htmlFor="username">Username</label>
                         <input 
@@ -101,7 +102,7 @@ const LoginForm = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password">password</label>
+                        <label htmlFor="password">Password</label>
                         <input 
                             name="password"
                             placeholder="password"
@@ -109,7 +110,11 @@ const LoginForm = () => {
                             value={values.password} 
                             type={showPassword ? "text" : "password"}
                         />
-                        <button type="button" onClick={toggleVerPassword}>
+                        <button 
+                            type="button" 
+                            onClick={toggleVerPassword}
+                            className="toogle-pass"
+                        >
                             {showPassword ? "Hide" : "Show"}
                         </button>
                     </div>
