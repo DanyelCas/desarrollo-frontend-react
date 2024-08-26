@@ -9,6 +9,7 @@ const LoginForm = () => {
     const [values, handleChange, resetForm] = useForm({ username: '', email: '', password: ''});
     const [showModalInfo, setShowModalInfo] = useState(false);
     const [showModalError, setShowModalError] = useState(false);
+    const [showModalEmail, setShowModalEmail] = useState(false);
     const [showModalLogout, setShowModalLogout] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const form = useSelector(state => state.form);
@@ -47,6 +48,10 @@ const LoginForm = () => {
 
     const hideModalError = () => {
         setShowModalError(false);
+    };
+
+    const hideModalEmail = () => {
+        setShowModalEmail(false);
     };
 
     const toggleVerPassword = () => {
@@ -89,9 +94,9 @@ const LoginForm = () => {
                     onConfirm={handleLogout}
                 />
                 <ModalInfo 
-                    visible={showModalError}
-                    message={"Ingrese el email conun formato válido"}
-                    onClose={hideModalError}
+                    visible={showModalEmail}
+                    message={"Ingrese el email con un formato válido"}
+                    onClose={hideModalEmail}
                 />
                 <form onSubmit={handleSubmit}>
                     <h2>Login Form</h2>
