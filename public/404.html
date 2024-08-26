@@ -6,9 +6,9 @@
   </head>
   <body>
     <script type="text/javascript">
-      // Redirige a la ruta original
+      // Redirige a la ruta original en el contexto de la aplicación React
       var path = window.location.pathname.replace('/desarrollo-frontend-react', '');
-      window.location.replace('/desarrollo-frontend-react' + path);
+      window.location.replace('/desarrollo-frontend-react/index.html?redirect=' + path);
     </script>
     <p>Redirecting...</p>
   </body>
