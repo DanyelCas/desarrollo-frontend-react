@@ -25,7 +25,7 @@ const LoginForm = () => {
         console.log(values);
 
         if (!validateEmail(values.email)) {
-            setShowModalError(true);
+            setShowModalEmail(true);
             return;
         }
 
@@ -33,7 +33,6 @@ const LoginForm = () => {
             dispatch(saveFormData(values));
         else
         {
-            console.log('son distintos!!!');
             setShowModalError(true);
         }
     };
