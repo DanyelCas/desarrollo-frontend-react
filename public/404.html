@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title>Page Not Found</title>
-    <script type="text/javascript">
-      var path = window.location.pathname;
-      var newUrl = '/desarrollo-frontend-react' + path;
-      window.location.replace(newUrl);
-    </script>
   </head>
   <body>
+    <script type="text/javascript">
+      // Redirige a la ruta original
+      var path = window.location.pathname.replace('/desarrollo-frontend-react', '');
+      window.location.replace('/desarrollo-frontend-react' + path);
+    </script>
     <p>Redirecting...</p>
   </body>
 </html>
