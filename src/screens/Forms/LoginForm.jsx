@@ -14,9 +14,20 @@ const LoginForm = () => {
     const form = useSelector(state => state.form);
     const dispatch = useDispatch();
 
+    const validateEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(values);
+
+        if (!validateEmail(values.email)) {
+            setShowModalError(true);
+            return;
+        }
+
         if(form.password_secret === values.password)
             dispatch(saveFormData(values));
         else
@@ -76,6 +87,11 @@ const LoginForm = () => {
                     message={messageLogout}
                     onClose={toogleModalLogout}
                     onConfirm={handleLogout}
+                />
+                <ModalInfo 
+                    visible={showModalError}
+                    message={"Ingrese el email conun formato válido"}
+                    onClose={hideModalError}
                 />
                 <form onSubmit={handleSubmit}>
                     <h2>Login Form</h2>
