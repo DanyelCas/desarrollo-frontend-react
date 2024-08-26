@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>Page Not Found</title>
-    <meta http-equiv="refresh" content="0; URL=/desarrollo-frontend-react/">
+    <script type="text/javascript">
+      var path = window.location.pathname;
+      var newUrl = '/desarrollo-frontend-react' + path;
+      window.location.replace(newUrl);
+    </script>
   </head>
   <body>
     <p>Redirecting...</p>
